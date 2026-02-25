@@ -37,14 +37,14 @@ class handDetector():
         return self.lmList
     def fingersUp(self):
         fingers = []
-        tipIds = [4,8,12,16,20] #a
-        if self.lmList[tipIds[0]][1] < self.lmList[tipIds[0] -1][1]: #koordinat x dari nodes landmark (b)
+        tipIds = [4,8,12,16,20]
+        if self.lmList[tipIds[0]][1] < self.lmList[tipIds[0] -1][1]: #x coordinate from nodes landmark
             fingers.append(1)
         else:
-            fingers.append(0) # c
-        for id in range(1,5): #index untuk jari telunjuk sampai kelingking
-            if self.lmList[tipIds[id]][2] < self.lmList[tipIds[id] -2] [2]: #koordinat y dari nodes landmark
-                fingers.append(1)                                            #
-            else:                 # b
-                fingers.append(0) #
+            fingers.append(0)
+        for id in range(1,5): #index five fingers
+            if self.lmList[tipIds[id]][2] < self.lmList[tipIds[id] -2] [2]: #y coordinate dari nodes landmark
+                fingers.append(1)                                           
+            else:                
+                fingers.append(0)
         return fingers
